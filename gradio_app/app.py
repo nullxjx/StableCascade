@@ -10,8 +10,8 @@ if torch.cuda.is_available():
 print("RUNNING ON:", device)
 
 c_dtype = torch.bfloat16 if device.type == "cpu" else torch.float
-prior = StableCascadePriorPipeline.from_pretrained("stabilityai/stable-cascade-prior", torch_dtype=c_dtype)
-decoder = StableCascadeDecoderPipeline.from_pretrained("stabilityai/stable-cascade", torch_dtype=torch.half)
+prior = StableCascadePriorPipeline.from_pretrained("/root/models/stabilityai/stable-cascade-prior", torch_dtype=c_dtype)
+decoder = StableCascadeDecoderPipeline.from_pretrained("/root/models/stabilityai/stable-cascade", torch_dtype=torch.half)
 prior.to(device)
 decoder.to(device)
 
